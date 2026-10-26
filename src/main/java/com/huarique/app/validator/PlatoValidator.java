@@ -17,7 +17,6 @@ public class PlatoValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Plato plato = (Plato) target;
 
-        // @NotNull cubre "categoria": null; aquí se cubre "categoria": {} (sin id)
         if (plato.getCategoria() != null && plato.getCategoria().getId() == null) {
             errors.rejectValue("categoria", "categoria.sin.id", "Debe indicar el id de la categoría");
         }
