@@ -1,0 +1,18 @@
+package com.huarique.app.repository;
+
+import com.huarique.app.dto.ClienteFrecuente;
+import com.huarique.app.entity.Reserva;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public interface ReservaRepository extends JpaRepository<Reserva, Long> {
+
+    List<Reserva> findByFecha(LocalDate fecha);
+
+    @Query("SELECT new com.huarique.app.dto.ClienteFrecuente(r.nombre, COUNT(r)) " +
+           "FROM Reserva r GROUP BY r.nombre ORDER BY COUNT(r) DESC")
+    List<ClienteFrecuente> clientesFrecuentes();
+}
