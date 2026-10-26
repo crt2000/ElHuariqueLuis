@@ -24,7 +24,6 @@ public class ReservaRestController {
         this.reservaValidator = reservaValidator;
     }
 
-    // Se aplica solo al parámetro de tipo Reserva (el nombre del binder es "reserva")
     @InitBinder("reserva")
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(reservaValidator);
