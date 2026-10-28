@@ -14,7 +14,6 @@ public class ReservaService {
     private int siguienteId = 1;
 
     public ReservaService() {
-        // Datos de ejemplo para demostración en Avance 2
         registrar(new Reserva(1, "Carlos Mendoza", "975112233", "Castilla (Av. Progreso 1213)", "2026-09-28", "13:30", 4, "Confirmada"));
         registrar(new Reserva(2, "Carlos Mendoza", "975112233", "Castilla (Av. Progreso 1213)", "2026-09-29", "20:00", 2, "Pendiente"));
         registrar(new Reserva(3, "Ana Torres", "981445566", "Piura Centro", "2026-09-28", "14:00", 3, "Confirmada"));

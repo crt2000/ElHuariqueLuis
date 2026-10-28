@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-// Solo aplica a los controladores REST: no afecta a los controladores Thymeleaf del Avance 2
 @RestControllerAdvice(basePackages = "com.huarique.app.api")
 public class ApiExceptionHandler {
 
-    // Falla de @Valid o de un Validator propio: devuelve { "campo": "mensaje" }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> validacion(MethodArgumentNotValidException ex) {
         Map<String, String> errores = new LinkedHashMap<>();
@@ -28,7 +26,6 @@ public class ApiExceptionHandler {
         return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
     }
 
-    // Eliminar una categoría que tiene platos
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<Map<String, String>> conflicto(IllegalStateException ex) {
         return ResponseEntity.status(409).body(Map.of("error", ex.getMessage()));

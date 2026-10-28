@@ -11,7 +11,6 @@ import java.time.LocalTime;
 @Component
 public class ReservaValidator implements Validator {
 
-    // Horario de atención de ejemplo: ajustar al horario real del restaurante
     private static final LocalTime APERTURA = LocalTime.of(11, 0);
     private static final LocalTime CIERRE = LocalTime.of(22, 0);
 

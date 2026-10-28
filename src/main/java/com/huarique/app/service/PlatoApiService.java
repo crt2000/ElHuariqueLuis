@@ -58,7 +58,6 @@ public class PlatoApiService {
         });
     }
 
-    // Cambio parcial (PATCH): solo se modifican los valores que llegan (no null)
     public Optional<Plato> actualizarParcial(Long id, Double precio, String etiqueta) {
         return platoRepository.findById(id).map(p -> {
             if (precio != null) {
